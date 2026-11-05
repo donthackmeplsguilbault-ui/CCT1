@@ -52,5 +52,5 @@ if n == 1 then
 elseif n == 2 then
   shell.run(".programs")
 else
-  term.shutdown()
+  term.shutdown
 end
