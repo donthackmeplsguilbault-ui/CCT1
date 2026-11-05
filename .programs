@@ -17,7 +17,7 @@ local function draw()
   writeCenter("Start Menu",4)
   writeCenter(((n==1 and "[TEST01]") or " TEST01 "),6)
   writeCenter(((n==2 and "[TEST02]") or " TEST02 "),7)
-  writeCenter(((n==3 and "[TEST03]") or " TEST03 "),8)
+  writeCenter(((n==3 and "[ BACK ]") or "  BACK  "),8)
 end
 
 term.clear()
@@ -53,6 +53,5 @@ elseif n == 2 then
   term.clear()
   term.setCursorPos(1,1)
 else
-  term.clear()
-  term.setCursorPos(1,1)
+  shell.run(".menu")
 end
