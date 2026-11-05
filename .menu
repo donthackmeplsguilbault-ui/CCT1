@@ -50,7 +50,7 @@ if n == 1 then
   term.clear()
   term.setCursorPos(1,1)
 elseif n == 2 then
-  shell.run("bg .programs")
+  shell.run(".programs")
 else
   term.shutdown()
 end
