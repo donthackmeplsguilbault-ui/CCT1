@@ -1,1 +1,56 @@
+term.clear()
 
+os.pullEvent = os.pullEventRaw
+local w,h = term.getSize()
+
+local function writeCenter(t,y)
+  local x = math.floor((w - string.len(t))/2)
+  term.setCursorPos(x,y)
+  term.clearLine()
+  term.write(t)
+end
+
+local n = 1
+
+local function draw()
+  writeCenter("CreateOS",3)
+  writeCenter("Start Menu",4)
+  writeCenter(((n==1 and "[COMMANDS]") or " COMMANDS "),6)
+  writeCenter(((n==2 and "[PROGRAMS]") or " PROGRAMS "),7)
+  writeCenter(((n==3 and "[  EXIT  ]") or "   EXIT   "),8)
+end
+
+term.clear()
+draw()
+
+while true do
+  local e,p = os.pullEvent()
+  if e == "key" then
+    local key = p
+    if key == keys.w then
+      if n > 1 then
+        n = n - 1
+        term.clear()
+        draw()
+      end
+    elseif key == keys.s then
+      if n < 3 then
+        n = n + 1
+        term.clear()
+        draw()
+      end
+    elseif key == keys.enter then
+      break
+    end
+  end
+end
+term.clear()
+
+if n == 1 then
+  shell.run("bg .commands")
+elseif n == 2 then
+  shell.run("bg .programs")
+else
+  term.clear()
+  term.setCursorPos(1,1)
+end
