@@ -1,1 +1,11 @@
-
+local w,h = term.getSize()
+term.clear()
+term.setCursorPos(math.floor(w/2)-4,7)
+term.write("CreateOS")
+term.setCursorPos(math.floor(w/2)-5,8)
+term.write("Loading...)
+term.setCursorPos(math.floor(w/2)-5,10)
+sleep(1)
+textutils.slowWrite("##########")
+sleep(1)
+shell.run(".menu")
