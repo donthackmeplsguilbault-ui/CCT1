@@ -49,6 +49,8 @@ term.clear()
 if n == 1 then
   term.clear()
   term.setCursorPos(1,1)
+  term.write("Call ".menu" to exit")
+  term.setCursorPos(1,2)
 elseif n == 2 then
   shell.run(".programs")
 else
