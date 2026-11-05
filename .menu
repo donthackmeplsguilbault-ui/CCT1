@@ -15,7 +15,7 @@ local n = 1
 local function draw()
   writeCenter("CreateOS",3)
   writeCenter("Start Menu",4)
-  writeCenter(((n==1 and "[COMMANDS]") or " COMMANDS "),6)
+  writeCenter(((n==1 and "[TERMINAL]") or " TERMINAL "),6)
   writeCenter(((n==2 and "[PROGRAMS]") or " PROGRAMS "),7)
   writeCenter(((n==3 and "[  EXIT  ]") or "   EXIT   "),8)
 end
@@ -47,10 +47,10 @@ end
 term.clear()
 
 if n == 1 then
-  shell.run("bg .commands")
+  term.clear()
+  term.setCursorPos(1,1)
 elseif n == 2 then
   shell.run("bg .programs")
 else
-  term.clear()
-  term.setCursorPos(1,1)
+  term.shutdown()
 end
